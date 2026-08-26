@@ -1,16 +1,56 @@
-# React + Vite
+# MoneyBeing Loan Eligibility & Lead Management - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+This is the frontend application for the MoneyBeing Loan Eligibility & Lead Management System.
 
-Currently, two official plugins are available:
+The frontend is built with Next.js and React. It provides the customer loan application form and the admin interface for managing leads and business rules.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
 
-## React Compiler
+- Next.js
+- React
+- JavaScript
+- CSS
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Main Features
 
-## Expanding the Oxlint configuration
+### Customer
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- Loan application form
+- Customer details validation
+- Loan details validation
+- Consent validation
+- Loan eligibility result
+- Credit score display
+- Rejection reasons
+
+### Admin
+
+- Admin can manage loan leads
+- Admin login
+- Dashboard
+- Lead management
+- Search leads
+- Filter leads
+- Pagination
+- Business rule management
+- Add, edit and delete business rules
+
+## Backend Integration
+
+The frontend communicates with the FastAPI backend through REST APIs.
+
+The backend handles:
+
+- Loan lead creation
+- Credit score generation
+- Business Rule Engine
+- Lead management
+- Admin authentication
+- Business rule management
+
+## Running the Frontend
+
+Install dependencies:
+
+```bash
+npm install
