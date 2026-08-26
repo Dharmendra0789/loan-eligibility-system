@@ -1,8 +1,8 @@
 # MoneyBeing Loan Eligibility & Lead Management
 
-This project is a Loan Eligibility and Lead Management System developed using Python, FastAPI, React and SQLAlchemy.
+This is a Loan Eligibility and Lead Management System developed as part of the MoneyBeing Python Full Stack Developer assessment.
 
-The main purpose of this project is to collect loan leads, check their eligibility based on business rules and provide an admin panel to manage leads and rules.
+The application allows customers to submit their loan details and check their loan eligibility. The admin can log in, view leads, check the dashboard and manage the business rules used for eligibility checking.
 
 ## Tech Stack
 
@@ -22,44 +22,45 @@ The main purpose of this project is to collect loan leads, check their eligibili
 ### Database
 - SQLite
 
-### Other Tools
+### Tools
 - Postman
 - Swagger / OpenAPI
+- Git & GitHub
 
-## Main Features
+## Features
 
 ### Customer
 
 - Loan eligibility form
-- Form validation
+- Customer and loan details validation
 - Consent validation
 - Mobile number validation
-- Duplicate mobile number check
-- Mock credit score generation
+- Duplicate mobile number checking
+- Credit score generation using a mock service
 - Loan eligibility checking
-- Rejection reasons
+- Rejection reasons when a customer is not eligible
 
 ### Admin
 
 - Admin login
-- JWT authentication
+- JWT based authentication
 - Dashboard
-- Total leads
-- Eligible leads
-- Rejected leads
+- Total leads count
+- Eligible leads count
+- Rejected leads count
 - Average credit score
 - Search leads
 - Filter leads
 - Pagination
 - Business rule management
 
-## Business Rule Engine
+## Business Rule Engine (BRE)
 
-The project uses a Business Rule Engine (BRE) to check whether a customer is eligible for a loan.
+The application uses a Business Rule Engine to check the loan eligibility of a customer.
 
-Rules are stored in the database, so the eligibility conditions can be changed without changing the main application code.
+The rules are stored in the database instead of being directly written in the application logic. This allows the admin to change the eligibility conditions without changing the source code.
 
-Currently supported operators are:
+The supported operators are:
 
 - >
 - >=
@@ -69,23 +70,23 @@ Currently supported operators are:
 - =
 - !=
 
-Some examples of rules are:
+Some of the rules used in the application include:
 
-- Age >= required age
-- Credit score >= required score
-- Monthly income >= required income
-- Loan amount <= allowed amount
-- Loan to property value ratio <= allowed ratio
+- Age should meet the required age
+- Credit score should meet the required score
+- Monthly income should meet the required income
+- Loan amount should be within the allowed limit
+- Loan amount compared with property value should be within the allowed ratio
 
-If any rule fails, the customer is marked as `Not Eligible` and the system returns the reason.
+If a customer does not satisfy one or more rules, the application returns `Not Eligible` along with the reason for rejection.
 
 ## Credit Score
 
-For this assessment, I have used a mock credit score service instead of a real credit bureau API.
+For this assessment, a mock credit score service is used instead of a real credit bureau API.
 
-The mock score is generated using the customer's mobile number. This makes testing easy because the same mobile number gives the same score.
+The score is generated using the customer's mobile number. The same mobile number produces the same score, which makes it easier to test the application.
 
-File:
+The credit score service is available here:
 
 ```text
 backend/app/services/credit_score.py
